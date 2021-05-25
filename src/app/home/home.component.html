@@ -1,6 +1,10 @@
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (input)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
 
 <mat-table
-       [dataSource]="dataSource" multiTemplateDataRows
+       [dataSource]="filtered_data" multiTemplateDataRows
        class="mat-elevation-z8">
   <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
     <mat-header-cell *matHeaderCellDef class="example-header"> {{column}} </mat-header-cell>

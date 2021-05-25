@@ -113,11 +113,15 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   expandedElement: CustomerData | null;
+  filtered_data : CustomerData[] = this.dataSource
 
-  applyFilter() {
-    this.dataSource = this.dataSource.filter(
-      (x) => {
-        return x.name.includes('a')
+  applyFilter(event: Event) {
+    // console.log(this.dataSource)
+    this.filtered_data = this.dataSource
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.filtered_data = this.filtered_data.filter(
+      (ele) => {
+        return ele.name.toLowerCase().includes(filterValue.trim().toLowerCase())
       }
     )
   }
