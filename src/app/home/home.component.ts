@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {MatSort} from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface CustomerData {
   position: number;
@@ -105,25 +107,24 @@ const ELEMENT_DATA: CustomerData[] = [
   ],
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor () {}
   ngOnInit() : void {}
 
+  @ViewChild(MatSort) sort: MatSort;
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
   expandedElement: CustomerData | null;
-  filtered_data : CustomerData[] = this.dataSource
+  filtered_data = new MatTableDataSource(ELEMENT_DATA)
 
   applyFilter(event: Event) {
-    // console.log(this.dataSource)
-    this.filtered_data = this.dataSource
     const filterValue = (event.target as HTMLInputElement).value;
-    this.filtered_data = this.filtered_data.filter(
-      (ele) => {
-        return ele.name.toLowerCase().includes(filterValue.trim().toLowerCase())
-      }
-    )
+    this.filtered_data.filter = filterValue.trim().toLowerCase();
+  }
+
+  ngAfterViewInit() : void {
+    this.filtered_data.sort = this.sort
   }
   
 }
