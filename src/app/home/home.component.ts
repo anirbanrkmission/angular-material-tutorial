@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatSort} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface CustomerData {
   position: number;
@@ -113,6 +114,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() : void {}
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator : MatPaginator;
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   expandedElement: CustomerData | null;
@@ -125,6 +127,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() : void {
     this.filtered_data.sort = this.sort
+    this.filtered_data.paginator = this.paginator
   }
   
 }

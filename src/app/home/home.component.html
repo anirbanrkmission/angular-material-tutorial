@@ -38,3 +38,8 @@
   </mat-row>
   <mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></mat-row>
 </mat-table>
+
+<mat-paginator [length]="10"
+              [pageSize]="4"
+              [pageSizeOptions]="[2, 4, 5]">
+</mat-paginator>
