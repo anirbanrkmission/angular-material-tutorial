@@ -5,11 +5,11 @@ import { StocksComponent } from './stocks/stocks.component'
 
 const routes: Routes = [
   {
-    path: 'stocks',
+    path: '**',
     component: StocksComponent
   },
   {
-    path: '**',
+    path: 'home',
     component: HomeComponent
   },
 ];

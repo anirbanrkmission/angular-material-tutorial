@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StocksComponent implements OnInit {
 
+  like_count : number = 0
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  increaseLike () : void {
+    this.like_count = 1
+  }
+
+  isDisable() : boolean {
+    return this.like_count==1
   }
 
 }

@@ -1,0 +1,19 @@
+.example-card {
+    width: 25%;
+    margin: 2px;
+    padding: 4px;
+    z-index: 8;
+}
+
+.example-header-image {
+    background-image: url('../../assets/photo.jpg');
+    background-size: cover;
+}
+
+.like-button {
+    color: purple;
+}
+
+.like-count {
+    color: crimson;
+}

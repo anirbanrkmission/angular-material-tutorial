@@ -1,1 +1,19 @@
-<p>stocks works!</p>
+<div class="container-fluid">
+    <mat-card class="example-card" >
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Anirban Bal</mat-card-title>
+            <mat-card-subtitle>Assistant System Engineer - Trainee</mat-card-subtitle>
+        </mat-card-header>
+    
+        <mat-card-content>
+            <img class="img-thumbnail" height="200px" width="250px" src="../../assets/anirban.jpg" alt="Anirban" >
+
+            <mat-card-actions>
+                <button [disabled]="isDisable()" mat-icon-button (click) = "increaseLike()">
+                    <mat-icon class="like-button" >favorite</mat-icon> <span class="like-count">{{like_count}}</span>
+                </button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</div>
